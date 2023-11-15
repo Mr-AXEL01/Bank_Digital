@@ -13,7 +13,14 @@ $conn = new mysqli($servername, $username, $password);
 if ($conn->connect_error) {
     die("Connection failed: ". $conn->connect_eroor);
 }
+// creating a databaseif not exist =>
 
+$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
+if($conn->query($sql) === TRUE) {
+    echo "Database created succesfully";
+}else{
+    echo "Error creating database: " . $conn->error;
+}
 
 
 ?>
