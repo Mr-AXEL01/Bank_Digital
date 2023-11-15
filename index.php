@@ -21,5 +21,10 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Footer -->
+    <footer class="text-center p-4 bg-slate-800 text-white">
+        <p>&copy; 2023 Bank App</p>
+    </footer>
 </body>
 </html>
