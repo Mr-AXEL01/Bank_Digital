@@ -53,7 +53,7 @@ if(isset($_GET['id'])) {
     <!-- Customer Account Details Section -->
     <section class="container mx-auto my-8 min-h-[80vh]">
         <h2 class="text-4xl font-semibold text-slate-800 mb-4">Customer Accounts</h2>
-        <div class="sub_container">
+        <div class="sub_container flex justify-between">
                     <!-- Display customer information -->
             <div class="bg-white p-4 border border-gray-300">
                 <p><strong>ID:</strong> <?php echo $customerData['id']; ?></p>
@@ -62,8 +62,10 @@ if(isset($_GET['id'])) {
                 <p><strong>Nationality:</strong> <?php echo $customerData['nationality']; ?></p>
                 <p><strong>Gender:</strong> <?php echo $customerData['gender']; ?></p>
             </div>
-            <!-- Add button to add a new account -->
-            <a href="add_account.php?customerId=<?php echo $customerId; ?>" class="bg-blue-500 text-white py-2 px-4 mb-4 inline-block">Add Account</a>
+            <div class="btn flex items-center">
+                <!-- Add button to add a new account -->
+                <a href="add_account.php?customerId=<?php echo $customerId; ?>" class="bg-blue-500 text-white py-2 px-4 mb-4 inline-block">Add Account</a>
+            </div>
         </div>
 
     </section>
