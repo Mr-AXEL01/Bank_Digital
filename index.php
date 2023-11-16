@@ -11,7 +11,7 @@
         <a href="index.php" class="navbar-logo text-4xl font-bold">A-Bank</a>
         <ul class="flex justify-around items-center h-full w-[30%]">
             <li class="hover:bg-slate-600 p-2 h-full">
-                <a href="customers.php" class="text-xl flex items-center h-full">Customers</a>
+                <a href="./customers.php" class="text-xl flex items-center h-full">Customers</a>
             </li>
             <li class="hover:bg-slate-600 p-2 h-full">
                 <a href="#" class="text-xl flex items-center h-full">Account</a>
