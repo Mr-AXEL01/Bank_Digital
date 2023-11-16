@@ -1,5 +1,6 @@
 <?php
-include 'db_connection.php';
+require_once('db_connection.php');
+
 
 // Check if the customer ID is provided in the URL
 if (isset($_GET['id'])) {
@@ -79,6 +80,7 @@ if (isset($_GET['id'])) {
                     <th class="py-2 px-4 border-b text-center">RIB</th>
                     <th class="py-2 px-4 border-b text-center">Balance</th>
                     <th class="py-2 px-4 border-b text-center">Currency</th>
+                    <th class="py-2 px-4 border-b text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -89,6 +91,10 @@ if (isset($_GET['id'])) {
                     echo "<td class='py-2 px-4 border-b text-center'>" . $account['rib'] . "</td>";
                     echo "<td class='py-2 px-4 border-b text-center'>" . $account['balance'] . "</td>";
                     echo "<td class='py-2 px-4 border-b text-center'>" . $account['currency'] . "</td>";
+                    echo "<td class='py-2 px-4 border-b text-center'>
+                                <a href='update_account.php?id=" . $account['id'] . "' class='bg-green-500 text-white py-1 px-2 mx-1'>Update</a>
+                                <a href='transaction.php?id=" . $account['id'] . "' class='bg-blue-500 text-white py-1 px-2 mx-1'>See More</a>
+                              </td>";
                     echo "</tr>";
                 }
                 ?>
