@@ -2,22 +2,25 @@
 include 'db_connection.php';
 
 // Check if the customer ID is provided in the URL
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $customerId = $_GET['id'];
 
     // Fetch customer data from the database
-    $result = $conn->query("SELECT * FROM customers WHERE id = $customerId");
+    $customerResult = $conn->query("SELECT * FROM customers WHERE id = $customerId");
 
-    if ($result->num_rows > 0) {
-        $customerData = $result->fetch_assoc();
+    if ($customerResult->num_rows > 0) {
+        $customerData = $customerResult->fetch_assoc();
+
+        // Fetch accounts associated with the customer
+        $accountsResult = $conn->query("SELECT * FROM accounts WHERE customer_id = $customerId");
     } else {
         // Redirect to the customers page if the customer with the given ID is not found
         header("Location: customers.php");
         exit();
     }
 
-    // Close the result set
-    $result->close();
+    // Close the result sets
+    $customerResult->close();
 } else {
     // Redirect to the customers page if no customer ID is provided
     header("Location: customers.php");
@@ -54,20 +57,43 @@ if(isset($_GET['id'])) {
     <section class="container mx-auto my-8 min-h-[80vh]">
         <h2 class="text-4xl font-semibold text-slate-800 mb-4">Customer Accounts</h2>
         <div class="sub_container flex justify-between">
-                    <!-- Display customer information -->
-            <div class="bg-white p-4 border border-gray-300">
-                <p><strong>ID:</strong> <?php echo $customerData['id']; ?></p>
-                <p><strong>Name:</strong> <?php echo $customerData['name']; ?></p>
-                <p><strong>Email:</strong> <?php echo $customerData['email']; ?></p>
-                <p><strong>Nationality:</strong> <?php echo $customerData['nationality']; ?></p>
-                <p><strong>Gender:</strong> <?php echo $customerData['gender']; ?></p>
-            </div>
             <div class="btn flex items-center">
                 <!-- Add button to add a new account -->
                 <a href="add_account.php?customerId=<?php echo $customerId; ?>" class="bg-blue-500 text-white py-2 px-4 mb-4 inline-block">Add Account</a>
             </div>
+            
+            <!-- Display customer information -->
+            <div class="bg-white py-4 px-4 w-[30%] h-25 flex flex-wrap border border-gray-300">
+                <p class="m-2"><strong>ID:</strong> <?php echo $customerData['id']; ?></p>
+                <p class="m-2"><strong>Name:</strong> <?php echo $customerData['name']; ?></p>
+                <p class="m-2"><strong>Email:</strong> <?php echo $customerData['email']; ?></p>
+                <p class="m-2"><strong>Nationality:</strong> <?php echo $customerData['nationality']; ?></p>
+                <p class="m-2"><strong>Gender:</strong> <?php echo $customerData['gender']; ?></p>
+            </div>
         </div>
-
+        <!-- Display accounts associated with the customer -->
+        <table class="min-w-full mt-7 bg-white border border-gray-300">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b text-center">Account ID</th>
+                            <th class="py-2 px-4 border-b text-center">Balance</th>
+                            <th class="py-2 px-4 border-b text-center">Currency</th>
+                            <th class="py-2 px-4 border-b text-center">Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while ($account = $accountsResult->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $account['id'] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $account['balance'] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $account['currency'] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $account['created_at'] . "</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+        </table>
     </section>
 
     <!-- Footer -->

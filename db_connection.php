@@ -12,22 +12,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Drop the existing database
-$dropDatabaseSql = "DROP DATABASE IF EXISTS $dbname";
-if ($conn->query($dropDatabaseSql) === TRUE) {
-    // echo "Database dropped successfully";
-} else {
-    // echo "Error dropping database: " . $conn->error;
-}
-
-// Create a new database
-$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
-if ($conn->query($sql) === TRUE) {
-    // echo "Database created successfully";
-} else {
-    // echo "Error creating database: " . $conn->error;
-}
-
 // Select the database
 $conn->select_db($dbname);
 
@@ -61,6 +45,50 @@ if ($tableCheckResult->num_rows == 0) {
         }
     } else {
         echo "Error creating customers table: " . $conn->error;
+    }
+}
+
+// Check if the accounts table exists
+$tableCheckSql = "SHOW TABLES LIKE 'accounts'";
+$tableCheckResult = $conn->query($tableCheckSql);
+
+if ($tableCheckResult->num_rows == 0) {
+    // Create accounts table if it doesn't exist
+    $createTableSql = "CREATE TABLE accounts (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        customer_id INT NOT NULL,
+        balance DECIMAL(10,2) DEFAULT 0.0,
+        currency VARCHAR(10),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (customer_id) REFERENCES customers(id)
+    )";
+
+    if ($conn->query($createTableSql) === TRUE) {
+        // echo "Accounts table created successfully";
+    } else {
+        echo "Error creating accounts table: " . $conn->error;
+    }
+}
+
+// Check if the transactions table exists
+$tableCheckSql = "SHOW TABLES LIKE 'transactions'";
+$tableCheckResult = $conn->query($tableCheckSql);
+
+if ($tableCheckResult->num_rows == 0) {
+    // Create transactions table if it doesn't exist
+    $createTableSql = "CREATE TABLE transactions (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        account_id INT NOT NULL,
+        amount DECIMAL(10,2) NOT NULL,
+        type VARCHAR(10) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (account_id) REFERENCES accounts(id)
+    )";
+
+    if ($conn->query($createTableSql) === TRUE) {
+        // echo "Transactions table created successfully";
+    } else {
+        echo "Error creating transactions table: " . $conn->error;
     }
 }
 
