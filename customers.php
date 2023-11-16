@@ -21,7 +21,12 @@
             </li>
         </ul>
     </nav>
-    
+    <section class="container mx-auto my-8">
+        <h2 class="text-4xl font-semibold text-slate-800 mb-4">Customer List</h2>
+        <!-- Add button -->
+        <button class="bg-blue-500 text-white py-2 px-4 mb-4">Add Customer</button>
+        
+    </section>
     <footer class="text-center p-4 bg-slate-800 text-white">
         <p>&copy; 2023 Bank App</p>
     </footer>
