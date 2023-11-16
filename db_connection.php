@@ -15,17 +15,17 @@ if ($conn->connect_error) {
 // Drop the existing database
 $dropDatabaseSql = "DROP DATABASE IF EXISTS $dbname";
 if ($conn->query($dropDatabaseSql) === TRUE) {
-    echo "Database dropped successfully";
+    // echo "Database dropped successfully";
 } else {
-    echo "Error dropping database: " . $conn->error;
+    // echo "Error dropping database: " . $conn->error;
 }
 
 // Create a new database
 $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
 if ($conn->query($sql) === TRUE) {
-    echo "Database created successfully";
+    // echo "Database created successfully";
 } else {
-    echo "Error creating database: " . $conn->error;
+    // echo "Error creating database: " . $conn->error;
 }
 
 // Select the database
@@ -47,7 +47,7 @@ if ($tableCheckResult->num_rows == 0) {
     )";
 
     if ($conn->query($createTableSql) === TRUE) {
-        echo "Customers table created successfully";
+        // echo "Customers table created successfully";
         
         // Insert sample data into the customers table (only if the table is created for the first time)
         $insertDataSql = "INSERT INTO customers (name, email, nationality, gender) VALUES
@@ -55,7 +55,7 @@ if ($tableCheckResult->num_rows == 0) {
             ('Jane Doe', 'jane@example.com', 'Canada', 'Female')";
 
         if ($conn->query($insertDataSql) === TRUE) {
-            echo "Sample data inserted successfully";
+            // echo "Sample data inserted successfully";
         } else {
             echo "Error inserting sample data: " . $conn->error;
         }
