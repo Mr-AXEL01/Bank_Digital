@@ -35,4 +35,10 @@ if ($conn->query($sql) === TRUE) {
 $insertDataSql = "INSERT INTO customers (name, email, nationality, gender) VALUES
     ('Rayan fiache', 'Rayan3@example.com', 'Morocco', 'Male'),
     ('Jane Doe', 'jane@example.com', 'Canada', 'Female')";
+
+if ($conn->query($insertDataSql) === TRUE) {
+    echo "Sample data inserted successfully";
+} else {
+    echo "Error inserting sample data: " . $conn->error;
+}
 ?>
