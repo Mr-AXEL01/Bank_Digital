@@ -48,25 +48,36 @@ require_once('db_connection.php');
             </thead>
             <tbody>
                 <?php
+                   try {
                     // Fetch and loop through your customer data from the database
                     $result = $conn->query("SELECT * FROM customers");
-
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td class='py-2 px-4 border-b text-center'>" . $row['id'] . "</td>";
-                        echo "<td class='py-2 px-4 border-b text-center'>" . $row['name'] . "</td>";
-                        echo "<td class='py-2 px-4 border-b text-center'>" . $row['email'] . "</td>";
-                        echo "<td class='py-2 px-4 border-b text-center'>" . $row['nationality'] . "</td>";
-                        echo "<td class='py-2 px-4 border-b text-center'>" . $row['gender'] . "</td>";
-                        echo "<td class='py-2 px-4 border-b text-center'>
-                                <a href='update_customer.php?id=" . $row['id'] . "' class='bg-green-500 text-white py-1 px-2 mx-1'>Update</a>
-                                <a href='account.php?id=" . $row['id'] . "' class='bg-blue-500 text-white py-1 px-2 mx-1'>See More</a>
-                              </td>";
-                        echo "</tr>";
+                
+                    // Check if there are no customers
+                    if ($result->num_rows === 0) {
+                        echo "No customers found.";
+                    } else {
+                        // Loop through the customers and display them
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row['id'] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row['name'] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row['email'] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row['nationality'] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row['gender'] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>
+                                    <a href='update_customer.php?id=" . $row['id'] . "' class='bg-green-500 text-white py-1 px-2 mx-1'>Update</a>
+                                    <a href='account.php?id=" . $row['id'] . "' class='bg-blue-500 text-white py-1 px-2 mx-1'>See More</a>
+                                  </td>";
+                            echo "</tr>";
+                        }
                     }
-
+                
                     // Close the result set
                     $result->close();
+                } catch (Exception $e) {
+                    // Handle the exception (e.g., display an error message)
+                    echo "Error: table not  exists ";
+                }
                 ?>
             </tbody>
         </table>
