@@ -25,7 +25,33 @@
         <h2 class="text-4xl font-semibold text-slate-800 mb-4">Customer List</h2>
         <!-- Add button -->
         <button class="bg-blue-500 text-white py-2 px-4 mb-4">Add Customer</button>
-        
+        <!-- Customer table -->
+        <table class="min-w-full bg-white border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b">ID</th>
+                    <th class="py-2 px-4 border-b">Name</th>
+                    <th class="py-2 px-4 border-b">Email</th>
+                    <th class="py-2 px-4 border-b">Nationality</th>
+                    <th class="py-2 px-4 border-b">Gender</th>
+                    <th class="py-2 px-4 border-b">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td class="py-2 px-4 border-b">1</td>
+                    <td class="py-2 px-4 border-b">John Doe</td>
+                    <td class="py-2 px-4 border-b">john@example.com</td>
+                    <td class="py-2 px-4 border-b">USA</td>
+                    <td class="py-2 px-4 border-b">Male</td>
+                    <td class="py-2 px-4 border-b">
+                        <button class="bg-green-500 text-white py-1 px-2">Update</button>
+                        <button class="bg-blue-500 text-white py-1 px-2">See More</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </section>
     <footer class="text-center p-4 bg-slate-800 text-white">
         <p>&copy; 2023 Bank App</p>
