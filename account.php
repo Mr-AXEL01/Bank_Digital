@@ -50,7 +50,19 @@ if(isset($_GET['id'])) {
         </ul>
     </nav>
 
-   
+    <!-- Customer Account Details Section -->
+    <section class="container mx-auto my-8 min-h-[75vh]">
+        <h2 class="text-4xl font-semibold text-slate-800 mb-4">Customer Accounts</h2>
+        
+        <!-- Display customer information -->
+        <div class="bg-white p-4 border border-gray-300">
+            <p><strong>ID:</strong> <?php echo $customerData['id']; ?></p>
+            <p><strong>Name:</strong> <?php echo $customerData['name']; ?></p>
+            <p><strong>Email:</strong> <?php echo $customerData['email']; ?></p>
+            <p><strong>Nationality:</strong> <?php echo $customerData['nationality']; ?></p>
+            <p><strong>Gender:</strong> <?php echo $customerData['gender']; ?></p>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="text-center p-4 bg-slate-800 text-white">
