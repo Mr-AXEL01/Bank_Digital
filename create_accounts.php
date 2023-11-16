@@ -27,7 +27,7 @@ if ($tableCheckResult->num_rows === 0) {
 try {
     // Insert sample account data into the accounts table
     $insertAccountSql = "INSERT INTO accounts (rib, balance, currency, customer_id) VALUES
-        ('123456789012304$newCustomerId', 1000.00, 'USD', $newCustomerId)";
+        ('123456789012000$newCustomerId', 1234.00, 'USD', $newCustomerId)";
 
     if ($conn->query($insertAccountSql) === TRUE) {
         echo "Sample account data inserted successfully";

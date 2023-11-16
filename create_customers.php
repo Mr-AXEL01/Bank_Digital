@@ -26,7 +26,7 @@ if ($tableCheckResult->num_rows === 0) {
 
 try {
     $insertDataSql = "INSERT INTO customers (name, email, nationality, gender) VALUES
-        ('yassine walid', 'walid@example.com', 'Morocco', 'Male')";
+        ('Mr axel', 'axel@example.com', 'Germany', 'Male')";
     $response = $conn->query($insertDataSql);
 
     if ($response === TRUE) {
