@@ -25,5 +25,11 @@ $sql = "CREATE TABLE IF NOT EXISTS customers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
+if ($conn->query($sql) === TRUE) {
+    echo "Customers table created successfully";
+} else {
+    echo "Error creating customers table: " . $conn->error;
+}
+
 
 ?>
