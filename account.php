@@ -51,7 +51,7 @@ if(isset($_GET['id'])) {
     </nav>
 
     <!-- Customer Account Details Section -->
-    <section class="container mx-auto my-8 min-h-[75vh]">
+    <section class="container mx-auto my-8 min-h-[80vh]">
         <h2 class="text-4xl font-semibold text-slate-800 mb-4">Customer Accounts</h2>
         
         <!-- Display customer information -->
