@@ -73,26 +73,26 @@ if (isset($_GET['id'])) {
         </div>
         <!-- Display accounts associated with the customer -->
         <table class="min-w-full mt-7 bg-white border border-gray-300">
-                    <thead>
-                        <tr>
-                            <th class="py-2 px-4 border-b text-center">Account ID</th>
-                            <th class="py-2 px-4 border-b text-center">Balance</th>
-                            <th class="py-2 px-4 border-b text-center">Currency</th>
-                            <th class="py-2 px-4 border-b text-center">Created At</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        while ($account = $accountsResult->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td class='py-2 px-4 border-b text-center'>" . $account['id'] . "</td>";
-                            echo "<td class='py-2 px-4 border-b text-center'>" . $account['balance'] . "</td>";
-                            echo "<td class='py-2 px-4 border-b text-center'>" . $account['currency'] . "</td>";
-                            echo "<td class='py-2 px-4 border-b text-center'>" . $account['created_at'] . "</td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </tbody>
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b text-center">Account ID</th>
+                    <th class="py-2 px-4 border-b text-center">RIB</th>
+                    <th class="py-2 px-4 border-b text-center">Balance</th>
+                    <th class="py-2 px-4 border-b text-center">Currency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                while ($account = $accountsResult->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='py-2 px-4 border-b text-center'>" . $account['id'] . "</td>";
+                    echo "<td class='py-2 px-4 border-b text-center'>" . $account['rib'] . "</td>";
+                    echo "<td class='py-2 px-4 border-b text-center'>" . $account['balance'] . "</td>";
+                    echo "<td class='py-2 px-4 border-b text-center'>" . $account['currency'] . "</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
         </table>
     </section>
 
