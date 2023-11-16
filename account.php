@@ -62,6 +62,10 @@ if(isset($_GET['id'])) {
             <p><strong>Nationality:</strong> <?php echo $customerData['nationality']; ?></p>
             <p><strong>Gender:</strong> <?php echo $customerData['gender']; ?></p>
         </div>
+
+        <!-- Add button to add a new account -->
+        <a href="add_account.php?customerId=<?php echo $customerId; ?>" class="bg-blue-500 text-white py-2 px-4 mb-4 inline-block">Add Account</a>
+
     </section>
 
     <!-- Footer -->
