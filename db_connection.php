@@ -42,7 +42,4 @@ if ($conn->query($insertDataSql) === TRUE) {
     echo "Error inserting sample data: " . $conn->error;
 }
 
-// Let's close the connection.
-$conn->close();
-
 ?>

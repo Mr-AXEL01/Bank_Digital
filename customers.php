@@ -1,10 +1,19 @@
+<!-- customers.php -->
+<?php
+include 'db_connection.php';
+
+// Fetch customer data
+$fetchDataSql = "SELECT * FROM customers";
+$result = $conn->query($fetchDataSql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>BANK APP</title>
+    <title>BANK APP - Customers</title>
 </head>
 <body class="m-0 p-0 box-border">
     <nav class="flex justify-around items-center h-20 bg-slate-800 text-white">
@@ -26,37 +35,40 @@
         <!-- Add button -->
         <button class="bg-blue-500 text-white py-2 px-4 mb-4">Add Customer</button>
         <!-- Customer table -->
-<table class="min-w-full bg-white border border-gray-300">
-    <thead>
-        <tr>
-            <th class="py-2 px-4 border-b text-center">ID</th>
-            <th class="py-2 px-4 border-b text-center">Name</th>
-            <th class="py-2 px-4 border-b text-center">Email</th>
-            <th class="py-2 px-4 border-b text-center">Nationality</th>
-            <th class="py-2 px-4 border-b text-center">Gender</th>
-            <th class="py-2 px-4 border-b text-center">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Loop through customers and display rows -->
-        <?php
-            // You need to fetch and loop through your customer data here
-            // For now, I'll provide a sample row
-        ?>
-        <tr>
-            <td class="py-2 px-4 border-b text-center">1</td>
-            <td class="py-2 px-4 border-b text-center">John Doe</td>
-            <td class="py-2 px-4 border-b text-center">john@example.com</td>
-            <td class="py-2 px-4 border-b text-center">USA</td>
-            <td class="py-2 px-4 border-b text-center">Male</td>
-            <td class="py-2 px-4 border-b text-center">
-                <button class="bg-green-500 text-white py-1 px-2 mx-1">Update</button>
-                <button class="bg-blue-500 text-white py-1 px-2 mx-1">See More</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
+        <table class="min-w-full bg-white border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b text-center">ID</th>
+                    <th class="py-2 px-4 border-b text-center">Name</th>
+                    <th class="py-2 px-4 border-b text-center">Email</th>
+                    <th class="py-2 px-4 border-b text-center">Nationality</th>
+                    <th class="py-2 px-4 border-b text-center">Gender</th>
+                    <th class="py-2 px-4 border-b text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    // Display customer data
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row["id"] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row["name"] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row["email"] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row["nationality"] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>" . $row["gender"] . "</td>";
+                            echo "<td class='py-2 px-4 border-b text-center'>
+                                    <button class='bg-green-500 text-white py-1 px-2 mx-1'>Update</button>
+                                    <button class='bg-blue-500 text-white py-1 px-2 mx-1'>See More</button>
+                                  </td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='6' class='py-2 px-4 border-b text-center'>No customers found</td></tr>";
+                    }
+                ?>
+            </tbody>
+        </table>
     </section>
     <footer class="text-center p-4 bg-slate-800 text-white">
         <p>&copy; 2023 Bank App</p>
