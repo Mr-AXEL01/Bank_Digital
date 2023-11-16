@@ -26,7 +26,7 @@ $sql = "CREATE TABLE IF NOT EXISTS customers (
 )";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Customers table created successfully";
+    echo "Customers table created successfully<br>";
 } else {
     echo "Error creating customers table: " . $conn->error;
 }
@@ -41,4 +41,8 @@ if ($conn->query($insertDataSql) === TRUE) {
 } else {
     echo "Error inserting sample data: " . $conn->error;
 }
+
+// Let's close the connection.
+$conn->close();
+
 ?>
