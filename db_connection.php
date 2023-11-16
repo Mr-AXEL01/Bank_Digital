@@ -31,5 +31,8 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating customers table: " . $conn->error;
 }
 
-
+// Insert sample data into the customers table
+$insertDataSql = "INSERT INTO customers (name, email, nationality, gender) VALUES
+    ('Rayan fiache', 'Rayan3@example.com', 'Morocco', 'Male'),
+    ('Jane Doe', 'jane@example.com', 'Canada', 'Female')";
 ?>
