@@ -21,7 +21,7 @@
             </li>
         </ul>
     </nav>
-    <section class="hero flex flex-col justify-center items-center h-[82vh] bg-[url('https://www.sld.com/wp-content/uploads/2018/10/image-79.png')] bg-no-repeat bg-cover bg-center">
+    <section class="hero flex flex-col justify-center items-center h-[86vh] bg-[url('https://www.sld.com/wp-content/uploads/2018/10/image-79.png')] bg-no-repeat bg-cover bg-center">
         <h1 class="text-7xl pb-6  font-semibold text-slate-800">Welcome to Bank Digital</h1>
         <p class="welcome_text w-1/2 text-2xl text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, fugit, tenetur, id dolore repudiandae quis expedita soluta amet aliquam rerum quidem! Quis maiores, dolorem natus error atque ullam alias labore!</p>
     </section>
