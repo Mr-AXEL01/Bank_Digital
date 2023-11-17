@@ -25,17 +25,25 @@ if ($tableCheckResult->num_rows === 0) {
 }
 
 try {
+    // Insert sample data into the customers table
     $insertDataSql = "INSERT INTO customers (name, email, nationality, gender) VALUES
-        ('Mr axel', 'axel@example.com', 'Germany', 'Male')";
+        ('mohamed daali', 'oussama@example.com', 'Moroccoo', 'Male')";
+
+    // Execute the query
     $response = $conn->query($insertDataSql);
 
     if ($response === TRUE) {
+        // Get the ID of the newly inserted customer
         $newCustomerId = $conn->insert_id;
+
+        // Output the ID for testing purposes
         echo $newCustomerId;
         echo "Sample data inserted successfully";
+
+        // Include the script to create accounts
         require_once('create_accounts.php');
     } else {
-        echo "Error inserting sample data: " . $conn->error;
+        throw new Exception("Error inserting sample data: " . $conn->error);
     }
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();

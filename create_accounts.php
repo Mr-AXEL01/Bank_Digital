@@ -27,12 +27,14 @@ if ($tableCheckResult->num_rows === 0) {
 try {
     // Insert sample account data into the accounts table
     $insertAccountSql = "INSERT INTO accounts (rib, balance, currency, customer_id) VALUES
-        ('123456789012000$newCustomerId', 1234.00, 'USD', $newCustomerId)";
+        ('1234567890120023', 5000.00, 'MAD', $newCustomerId),
+        ('1234567890120014', 931.00, 'MAD', $newCustomerId)";
 
     if ($conn->query($insertAccountSql) === TRUE) {
         echo "Sample account data inserted successfully";
+
     } else {
-        echo "Error inserting sample account data: " . $conn->error;
+        throw new Exception("Error inserting sample account data: " . $conn->error);
     }
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
