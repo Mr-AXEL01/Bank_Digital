@@ -26,8 +26,8 @@ if ($tableCheckResult->num_rows === 0) {
 try {
     // Insert sample transaction data into the transactions table
     $insertTransactionSql = "INSERT INTO transactions (amount, type, account_id) VALUES
-        (100.00, 'debit', 10),
-        (50.00, 'credit', 11)";// dont forget to change the id in the update balace bellow 
+        (120.00, 'debit', 10),
+        (10.00, 'credit', 11)";// dont forget to change the id in the update balace bellow 
 
     if ($conn->query($insertTransactionSql) === TRUE) {
         echo "Sample transaction data inserted successfully";

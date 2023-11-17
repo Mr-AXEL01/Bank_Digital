@@ -21,9 +21,11 @@
             </li>
         </ul>
     </nav>
-    <section class="hero flex flex-col justify-center items-center h-[86vh] bg-[url('https://www.sld.com/wp-content/uploads/2018/10/image-79.png')] bg-no-repeat bg-cover bg-center">
-        <h1 class="text-7xl pb-6  font-semibold text-slate-800">Welcome to Bank Digital</h1>
-        <p class="welcome_text text-center w-1/2 text-2xl text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, fugit, tenetur, id dolore repudiandae quis expedita soluta amet aliquam rerum quidem! Quis maiores, dolorem natus error atque ullam alias labore!</p>
+    <section class="hero flex flex-col justify-around items-center h-[86vh] bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/First_Bank_of_the_United_States%2C_Philadelphia%2C_Pennsylvania_LCCN2011633532_%28edited%29.jpg/800px-First_Bank_of_the_United_States%2C_Philadelphia%2C_Pennsylvania_LCCN2011633532_%28edited%29.jpg')] bg-no-repeat bg-cover bg-center">
+        <h1 class="text-8xl pb-6  font-bold text-blue-100">Welcome to Bank Digital</h1>
+        <div class="text_cont bg-black bg-opacity-40 rounded-3xl font-semibold flex justify-center w-1/2">
+        <p class="welcome_text text-center w-full text-3xl p-2 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, fugit, tenetur, id dolore repudiandae quis expedita soluta amet aliquam rerum quidem! Quis maiores, dolorem natus error atque ullam alias labore!</p>
+        </div>
     </section>
     <footer class="text-center p-4 bg-slate-800 text-white">
         <p>&copy; 2023 Bank App</p>
