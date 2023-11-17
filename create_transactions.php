@@ -26,26 +26,26 @@ if ($tableCheckResult->num_rows === 0) {
 try {
     // Insert sample transaction data into the transactions table
     $insertTransactionSql = "INSERT INTO transactions (amount, type, account_id) VALUES
-        (120.00, 'debit', 10),
-        (10.00, 'credit', 11)";// dont forget to change the id in the update balace bellow 
+        -- (120.00, 'debit', 10),
+        (200.00, 'credit', 1)";// dont forget to change the id in the update balace bellow 
 
     if ($conn->query($insertTransactionSql) === TRUE) {
         echo "Sample transaction data inserted successfully";
 
         // Update account balances based on transactions
-        $updateBalancesSql = "UPDATE accounts 
-                              SET balance = balance - (SELECT amount FROM transactions WHERE type = 'debit' AND account_id = 10)
-                              WHERE id = 10";
+        // $updateBalancesSql = "UPDATE accounts 
+        //                       SET balance = balance - (SELECT amount FROM transactions WHERE type = 'debit' AND account_id = 3)
+        //                       WHERE id = 3";
 
-        if ($conn->query($updateBalancesSql) === TRUE) {
-            echo "Account balances updated successfully";
-        } else {
-            throw new Exception("Error updating account balances: " . $conn->error);
-        }
+        // if ($conn->query($updateBalancesSql) === TRUE) {
+        //     echo "Account balances updated successfully";
+        // } else {
+        //     throw new Exception("Error updating account balances: " . $conn->error);
+        // }
 
         $updateBalancesSql = "UPDATE accounts 
-                              SET balance = balance + (SELECT amount FROM transactions WHERE type = 'credit' AND account_id = 11)
-                              WHERE id = 11";
+                              SET balance = balance + (SELECT amount FROM transactions WHERE type = 'credit' AND account_id = 1)
+                              WHERE id = 1";
 
         if ($conn->query($updateBalancesSql) === TRUE) {
             echo "Account balances updated successfully";

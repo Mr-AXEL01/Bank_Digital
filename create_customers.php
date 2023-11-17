@@ -27,7 +27,7 @@ if ($tableCheckResult->num_rows === 0) {
 try {
     // Insert sample data into the customers table
     $insertDataSql = "INSERT INTO customers (name, email, nationality, gender) VALUES
-        ('mohamed daali', 'oussama@example.com', 'Moroccoo', 'Male')";
+        ('ABD-ELHAQ yassie', 'abdelhakazour3@gmail.com', 'Moroccoo', 'Male')";
 
     // Execute the query
     $response = $conn->query($insertDataSql);
@@ -37,7 +37,7 @@ try {
         $newCustomerId = $conn->insert_id;
 
         // Output the ID for testing purposes
-        echo $newCustomerId;
+        
         echo "Sample data inserted successfully";
 
         // Include the script to create accounts

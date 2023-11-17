@@ -14,10 +14,10 @@
                 <a href="./customers.php" class="text-xl flex items-center h-full">Customers</a>
             </li>
             <li class="hover:bg-slate-600 p-2 h-full">
-                <a href="#" class="text-xl flex items-center h-full">Account</a>
+                <a href="view_account.php" class="text-xl flex items-center h-full">Account</a>
             </li>
             <li class="hover:bg-slate-600 p-2 h-full">
-                <a href="#" class="text-xl flex items-center h-full">Transaction</a>
+                <a href="view_transaction.php" class="text-xl flex items-center h-full">Transaction</a>
             </li>
         </ul>
     </nav>
